@@ -7,11 +7,8 @@ eclipse Mars
 tomcat 8.0.30
 jdk 8.0
 maven 3.3.9
-
 STS(Spring Tool Suite)
-
 JSDT jQuery
-
 MySQL
 
 ## 참고
