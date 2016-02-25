@@ -39,10 +39,12 @@
                    	<c:choose>
 		            	<c:when test="${fn:length(list) > 0}">                
                     		<c:forEach var="row" items="${list }">
+                    		<p>
                     		    <input type="hidden" id="IDX" value="${row.IDX }">
                     		    <a href="#this" name="file">${row.ORIGINAL_FILE_NAME }</a> 
                     		    (${row.FILE_SIZE }kb)
-                   			 </c:forEach>
+                   			 </p>
+	            			 </c:forEach>
                    		 </c:when>
            				 <c:otherwise>
                 			첨부파일이 없습니다.

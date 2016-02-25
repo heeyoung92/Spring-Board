@@ -81,6 +81,7 @@
                 fn_deleteFile($(this));
             });
         }
+
         function fn_deleteFile(obj){
             obj.parent().remove();
         }
