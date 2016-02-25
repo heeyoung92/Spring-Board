@@ -16,6 +16,7 @@ Spring으로 게시판 만들기
 http://addio3305.tistory.com/32
 
 
+
 ***
 ### MySQL Query
     /* 게시판 테이블 생성 */
@@ -54,22 +55,23 @@ http://addio3305.tistory.com/32
         PRIMARY KEY (IDX)
     );
     
-    <!-- insert procedure(데이터 자동 삽입)-->
+    /* insert procedure(데이터 자동 삽입) */
     DELIMITER $$
 
     CREATE PROCEDURE my()
     BEGIN
         DECLARE i INT DEFAULT 1;
         WHILE (i < 500) DO
-            INSERT INTO TB_BOARD(TITLE, CONTENTS, HIT_CNT, DEL_GB, CREA_DTM, CREA_ID) VALUES(concat('제목 ',i), concat('내용 ',i), 0, 'N', CURRENT_TIMESTAMP, 'Admin');
-		    SET i = i + 1;
+            INSERT INTO TB_BOARD(TITLE, CONTENTS, HIT_CNT, DEL_GB, CREA_DTM, CREA_ID) 
+            VALUES(concat('제목 ',i), concat('내용 ',i), 0, 'N', CURRENT_TIMESTAMP, 'Admin');
+	    SET i = i + 1;
         END WHILE;
     END$$
     DELIMITER ;
     CALL my();
 
 
-    <!-- 페이징 Limit #{START}, #{COUNT}-->
+    /* 페이징 Limit #{START}, #{COUNT} */
     SELECT
 	    (select count(*) from tb_board) TOTAL_COUNT,
 	    IDX,
