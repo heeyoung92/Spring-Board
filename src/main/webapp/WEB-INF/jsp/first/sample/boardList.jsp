@@ -44,6 +44,12 @@
             </c:choose>
         </tbody>
     </table>
+                          
+ 	<c:if test="${not empty paginationInfo}">
+		<ui:pagination paginationInfo = "${paginationInfo}" type="text" jsFunction="fn_search"/>
+	</c:if>
+	<input type="hidden" id="currentPageNo" name="currentPageNo"/>
+    
     <br/>
     <a href="#this" class="btn" id="write">글쓰기</a>
      
@@ -61,7 +67,6 @@
             });
         });
          
-         
         function fn_openBoardWrite(){
             var comSubmit = new ComSubmit();
             comSubmit.setUrl("<c:url value='/sample/openBoardWrite.do' />");
@@ -72,6 +77,13 @@
             var comSubmit = new ComSubmit();
             comSubmit.setUrl("<c:url value='/sample/openBoardDetail.do' />");
             comSubmit.addParam("IDX", obj.parent().find("#IDX").val());
+            comSubmit.submit();
+        }
+        
+        function fn_search(pageNo){
+            var comSubmit = new ComSubmit();
+            comSubmit.setUrl("<c:url value='/sample/openBoardList.do' />");
+            comSubmit.addParam("currentPageNo", pageNo);
             comSubmit.submit();
         }
     </script> 

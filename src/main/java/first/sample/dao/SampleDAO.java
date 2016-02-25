@@ -10,9 +10,9 @@ import first.common.dao.AbstractDAO;
 public class SampleDAO extends AbstractDAO{
 	
 	@SuppressWarnings("unchecked")
-	public List<Map<String, Object>> selectBoardList(Map<String, Object> map) throws Exception{
+	public Map<String, Object> selectBoardList(Map<String, Object> map) throws Exception{
 		// TODO Auto-generated method stub
-		return (List<Map<String, Object>>)selectList("sample.selectBoardList", map);
+		 return (Map<String, Object>)selectPagingList("sample.selectBoardList", map);
 	}
 
 	public void insertBoard(Map<String, Object> map)throws Exception{

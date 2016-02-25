@@ -36,6 +36,7 @@
 				<enabled>false</enabled>
 			</snapshots>
 		</repository>
+		
 	</repositories>
 	
 	<dependencies>
@@ -255,6 +256,13 @@
 			<version>2.7.0</version>
 		</dependency>
 		
+		<!-- 전자정부 페이징 -->	
+		<dependency>
+   			 <groupId>egovframework.rte</groupId>
+   			 <artifactId>egovframework.rte.ptl.mvc</artifactId>
+   			 <version>3.5.0</version>
+		</dependency>
+	
 		<!-- Log4j -->
 		<dependency>
 			<groupId>log4j</groupId>

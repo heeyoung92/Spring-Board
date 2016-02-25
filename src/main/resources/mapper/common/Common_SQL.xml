@@ -13,4 +13,10 @@
    		         IDX = #{IDX}
    		 ]]>
 	</select>
+ 
+	<sql id="pagingPost">
+    	<![CDATA[
+    		LIMIT #{START}, #{COUNT}
+   	 	]]>
+	</sql>
 </mapper>

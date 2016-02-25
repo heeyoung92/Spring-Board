@@ -3,8 +3,9 @@
 
 <mapper namespace="sample">
 	<select id="selectBoardList" parameterType="hashmap" resultType="hashmap">
-		<![CDATA[
+	 <![CDATA[
 			SELECT
+				(select count(*) from tb_board) TOTAL_COUNT,
 			    IDX,
 			    TITLE,
 			    HIT_CNT,
@@ -15,6 +16,7 @@
     			DEL_GB = 'N'    
 			ORDER BY IDX DESC
 		]]>
+		<include refid="common.pagingPost"/> 
 	</select>
 	
 	
