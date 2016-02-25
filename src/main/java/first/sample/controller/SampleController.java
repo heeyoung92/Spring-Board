@@ -68,7 +68,8 @@ public class SampleController {
         ModelAndView mv = new ModelAndView("/sample/boardDetail");
          
         Map<String,Object> map = sampleService.selectBoardDetail(commandMap.getMap());
-        mv.addObject("map", map);
+        mv.addObject("map", map.get("map"));	// 게시글 상세정보
+        mv.addObject("list", map.get("list"));	// 첨부파일 목록
          
         return mv;
     }
