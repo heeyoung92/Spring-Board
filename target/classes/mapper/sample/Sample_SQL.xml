@@ -19,10 +19,10 @@
 	
 	
 	
-	<insert id="insertBoard" parameterType="hashmap">
-    	<![CDATA[
+	<insert id="insertBoard" parameterType="hashmap" useGeneratedKeys="true" keyProperty="IDX">
+   		<![CDATA[
         	INSERT INTO TB_BOARD
-        	(
+        	( 	IDX,
         	    TITLE, 
         	    CONTENTS, 
         	    HIT_CNT, 
@@ -31,7 +31,8 @@
         	    CREA_ID
         	)
         	VALUES
-        	( 
+        	( 	 
+        		#{IDX}, 
             	#{TITLE}, 
             	#{CONTENTS}, 
             	0, 
@@ -97,4 +98,25 @@
     	        IDX = #{IDX}
    		 ]]>
 	</delete> 
+	
+	<insert id="insertFile" parameterType="hashmap">
+    <![CDATA[
+        INSERT INTO TB_FILE
+        (
+            BOARD_IDX,
+            ORIGINAL_FILE_NAME,
+            STORED_FILE_NAME,
+            FILE_SIZE,
+            CREA_ID
+        )
+        VALUES
+        (
+            #{BOARD_IDX},
+            #{ORIGINAL_FILE_NAME},
+            #{STORED_FILE_NAME},
+            #{FILE_SIZE},
+            'Admin'
+        )
+    ]]>
+	</insert>
 </mapper>
